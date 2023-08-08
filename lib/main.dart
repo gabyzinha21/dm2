@@ -21,23 +21,44 @@ class PaginaInicial extends StatelessWidget {
   }
 }
 
-class Curtir extends StatelessWidget {
+class Curtir extends StatefulWidget {
   const Curtir({super.key});
 
+  @override
+  State<Curtir> createState() => _CurtirState();
+}
+
+class _CurtirState extends State<Curtir> {
+  bool curtiu = false;
+  int curtir = 0;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Curtir"),
+        title: Text("💕Curtir💕"),
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
-              iconSize: 40,
-              icon: Icon(Icons.favorite_outline),
-              onPressed: () {},
+              iconSize: 128,
+             icon: curtiu == true 
+             ? Icon(Icons.favorite, color: Colors.pink)
+             : Icon (Icons.favorite_outline,color: Colors.black),
+              
+            
+              onPressed: () {
+                setState(() {
+                  curtiu = true;
+                });
+                setState(() {
+                  curtir = curtir+1;
+                });
+              },
             ),
+            Text("Curtidas: $curtir "),
           ],
         ),
       )
@@ -54,12 +75,12 @@ class Home extends StatelessWidget {
     return Scaffold (
       appBar: AppBar (
         title: Text("Home🏡"),
-        backgroundColor: Color.fromARGB(225, 255, 81, 81),
+        backgroundColor: Color.fromARGB(209, 240, 133, 133),
       ),
       body: ListView(
         children: [
           ListTile(
-            leading: Icon(Icons.calculate, size: 36),
+            leading: Icon(Icons.calculate, size: 36, color: Colors.blue),
             title: Text("Contador"),
             subtitle: Text("Exemplo de incremento e decremento"),
             trailing: Icon(Icons.chevron_right),
@@ -69,7 +90,7 @@ class Home extends StatelessWidget {
           ),
 
           ListTile(
-            leading: Icon(Icons.favorite, size: 36),
+            leading: Icon(Icons.favorite, size: 36, color: Colors.red,),
             title: Text("Curtir"),
             subtitle: Text("Exemplo de curtir e descurtir"),
             trailing: Icon(Icons.chevron_right),
@@ -100,7 +121,7 @@ class _ContadorState extends State<Contador> {
     
     return Scaffold(
       appBar: AppBar(
-        title: Text("My App <3"),
+        title: Text("Contador 123..."),
       ),
       body: Center(
         child: Column(
