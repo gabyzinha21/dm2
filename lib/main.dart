@@ -16,6 +16,7 @@ class PaginaInicial extends StatelessWidget {
       '/':(context) => Home(),
       '/Contador':(context) => Contador(),
       '/Curtir':(context) => Curtir(),
+      '/Cadastrar':(context) => Cadastrar(),
      },
     );
   }
@@ -98,6 +99,15 @@ class Home extends StatelessWidget {
               Navigator.pushNamed(context, '/Curtir');
             },
           ),
+          ListTile(
+            leading: Icon(Icons.person, size: 36, color: Color.fromARGB(162, 175, 238, 73)),
+            title: Text("Cadastrar"),
+            subtitle: Text("Exemplo de Cadastro"),
+            trailing: Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.pushNamed(context, '/Cadastrar');
+            },
+          ),
         ],
       ),
     );
@@ -149,5 +159,20 @@ class _ContadorState extends State<Contador> {
         ),
       ),
     );
+  }
+}
+
+class Cadastrar extends StatelessWidget {
+  const Cadastrar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      appBar: AppBar(
+        title: Text("Cadastro"),
+      ),
+      
+    );
+    
   }
 }
