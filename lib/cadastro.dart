@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+
+
 import 'package:flutter/material.dart';
 
 
@@ -16,18 +18,55 @@ class Cadastrar extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
-          TextField(
+                TextFormField(
             decoration: InputDecoration(
-              icon: Icon(Icons.email),
-              hintText:"Informe seu Email",
+              prefixIcon: Icon(Icons.person),
+             label: Text("Informe seu nome"),
+              border: OutlineInputBorder(),
             ),
           ),
-          TextField( decoration: InputDecoration(
-              icon: Icon(Icons.lock),
-              hintText:"Informe sua Senha",
-            ),),
-          SizedBox(height: 30,),
-          ElevatedButton(
+
+          SizedBox(height: 20,),
+
+          TextFormField(
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.email),
+             label: Text("Informe seu email"),
+              border: OutlineInputBorder(),
+            ),
+          ),
+
+          SizedBox(height: 20,),
+
+          TextFormField(
+             decoration: InputDecoration(
+            prefixIcon: Icon(Icons.lock),
+              label: Text("Informe sua senha"),
+              border: OutlineInputBorder(),
+            ),
+          ),
+          
+          SizedBox(height: 20,),
+
+          TextFormField(
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.today),
+             label: Text("Informe sua data de nascimento"),
+              border: OutlineInputBorder(),
+            ),
+            onTap: () {
+              showDatePicker(
+                context: context, 
+                initialDate: DateTime.now(),
+                firstDate: DateTime(1900,1,1), 
+                lastDate: DateTime.now(),
+                );
+            },
+          ),
+
+          SizedBox(height: 20,),
+
+          ElevatedButton( //botão de enviar//
             onPressed:() {},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.purple,

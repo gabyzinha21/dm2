@@ -17,8 +17,8 @@ class _ContadorState extends State<Contador> {
     
     return Scaffold(
       appBar: AppBar(
-        title: Text("Contador 123..."),
-        backgroundColor: Color.fromARGB(193, 33, 149, 243),
+        title: Text("Contador"),
+        backgroundColor: Color.fromARGB(214, 33, 149, 243),
       ),
       body: Center(
         child: Column(

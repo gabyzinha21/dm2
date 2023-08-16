@@ -11,12 +11,12 @@ class Home extends StatelessWidget {
     return Scaffold (
       appBar: AppBar (
         title: Text("Home🏡"),
-        backgroundColor: Color.fromARGB(209, 240, 133, 133),
+        backgroundColor: Color.fromARGB(197, 252, 69, 155),
       ),
       body: ListView(
         children: [
           ListTile(
-            leading: Icon(Icons.calculate, size: 36, color: Color.fromARGB(204, 33, 149, 243)),
+            leading: Icon(Icons.calculate, size: 36, color: Color.fromARGB(226, 33, 149, 243)),
             title: Text("Contador"),
             subtitle: Text("Exemplo de incremento e decremento"),
             trailing: Icon(Icons.chevron_right),
@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.person, size: 36, color: Color.fromARGB(161, 238, 73, 197)),
+            leading: Icon(Icons.person, size: 36, color: Colors.purple),
             title: Text("Cadastrar"),
             subtitle: Text("Exemplo de Cadastro"),
             trailing: Icon(Icons.chevron_right),
