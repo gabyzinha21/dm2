@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import'package:flutter_localizations/flutter_localizations.dart';
 import 'cadastro.dart';
 import 'contador.dart';
 import 'curtir.dart';
@@ -16,6 +17,11 @@ class MeuApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      supportedLocales: [
+        Locale('pt', 'BR'),
+      ],
+      localizationsDelegates: 
+      GlobalMaterialLocalizations.delegates,
      routes: {
       '/':(context) => Home(),
       '/Contador':(context) => Contador(),

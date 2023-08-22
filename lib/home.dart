@@ -10,7 +10,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold (
       appBar: AppBar (
-        title: Text("Home🏡"),
+        title: Text("Home 🏡"),
         backgroundColor: Color.fromARGB(197, 252, 69, 155),
       ),
       body: ListView(
