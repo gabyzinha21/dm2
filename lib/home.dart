@@ -43,6 +43,15 @@ class Home extends StatelessWidget {
               Navigator.pushNamed(context, '/Cadastrar');
             },
           ),
+           ListTile(
+            leading: Icon(Icons.login, size: 36, color: const Color.fromARGB(255, 76, 175, 80)),
+            title: Text("login"),
+            subtitle: Text("faça seu login"),
+            trailing: Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.pushNamed(context, '/login');
+            },
+          ),
         ],
       ),
     );
