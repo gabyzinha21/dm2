@@ -30,7 +30,7 @@ class MeuApp extends StatelessWidget {
       '/Cadastrar':(context) => Cadastrar(),
       '/login':(context) => login(),
      },
-    );
+    ); 
   }
 }
 
