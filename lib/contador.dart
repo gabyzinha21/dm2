@@ -10,7 +10,27 @@ class Contador extends StatefulWidget {
 }
 
 class _ContadorState extends State<Contador> {
-   int x = 100;
+   int x = 0; 
+
+   @override
+  void initState() {
+    super.initState();
+    obtemValor(); // lÊ da memoria hora que abre a página
+  }
+
+  void obtemValor()  async {
+    //busca um valor da memoria persistente
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+          x = prefs.getInt("contador") ?? 0;
+    });
+  }
+
+  void salvaValor(int valor) async {
+    //salva um valor da memoria persistente
+     final prefs = await SharedPreferences.getInstance();
+     prefs.setInt("contador", valor);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +52,7 @@ class _ContadorState extends State<Contador> {
                 setState(() {
                   x = x+1;
                 });
+                salvaValor(x); // manda salvar o valor de x
               },
               child: Text("incrementar"),
             ),
@@ -41,6 +62,7 @@ class _ContadorState extends State<Contador> {
                setState(() {
                   x = x-1;
                 });
+
               },
               child: Text("decrementa"),
             ),
