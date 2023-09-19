@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Curtir extends StatefulWidget {
   const Curtir({super.key});
@@ -13,6 +15,17 @@ class _CurtirState extends State<Curtir> {
   bool curtiu = false;
   int curtir = 0;
   
+  void obtemValor() async {
+final prefs =SharedPreferences.getInstance()
+  setState(() {
+  curtiu = prefs.getBool("curtiu") ?? false;
+});
+  }
+
+  void salvaValor( bool valor) async{
+    final  pref = SharedPreferences.getInstance();
+    prefs.setBool(abobora, valor);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +48,11 @@ class _CurtirState extends State<Curtir> {
                 setState(() {
                   curtiu = true;
                 });
+              
                 setState(() {
                   curtir = curtir+1;
                 });
+                salvaValor(curtiu);
               },
             ),
             Text("Curtidas: $curtir "),
