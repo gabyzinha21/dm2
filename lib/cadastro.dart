@@ -3,10 +3,11 @@
 
 
 import 'package:flutter/material.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Cadastrar extends StatefulWidget {
   const Cadastrar({super.key});
+
 
   @override
   State<Cadastrar> createState() => _CadastrarState();
@@ -16,6 +17,20 @@ class _CadastrarState extends State<Cadastrar> {
   var nomeController = TextEditingController();
   var emailController = TextEditingController();
   var senhaController = TextEditingController();
+
+  void salvaDados() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString("nome", nomeController.text);
+     prefs.setString("email", emailController.text);
+      prefs.setString("senha", senhaController.text);
+}
+
+void obtemdeDados() async {
+  final prefs = await SharedPreferences.getInstance();
+  nomeController.text = prefs.getString("nome") ?? "";
+  emailController.text = prefs.getString("email") ?? "";
+  senhaController.text = prefs.getString("senha") ?? "";
+}
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +99,7 @@ class _CadastrarState extends State<Cadastrar> {
               print(nomeController.text);
               print(emailController.text);
               print(senhaController.text);
+              salvaDados();
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.purple,
